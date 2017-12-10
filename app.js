@@ -14,6 +14,14 @@ window.onload = function onReady(){
 			newLi.appendChild(checkbox);
 			toDoList.appendChild(newLi);
 			newToDoText.value = '';
+
+			input.onclick = function completed(){
+				alert('complete?');
+			}
+
 	});
+
+	
+		
 }
 
