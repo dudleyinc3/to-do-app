@@ -17,20 +17,14 @@ window.onload = function onReady(){
 			toDoList.appendChild(newLi);
 			newToDoText.value = '';
 
-		var confirmDelete = checkbox.addEventListener('click', someFunction);		
+	const deleteBtn = document.createElement('button')
+		deleteBtn.innerHTML = '<span>Delete</span>';
 
-		function someFunction(){
-			alert('Remove Item?');
-		}
+		newLi.appendChild(deleteBtn);
 
-		function removeItem(){
-			if(checkbox.input === true){
-				alert('yes');
-			}
-		}
-
-	});	
-
-		
+		deleteBtn.addEventListener('click', () => {
+			toDoList.removeChild(newLi);
+		});
+	});			
 }
 
