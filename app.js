@@ -79,6 +79,7 @@
 */
 function onReady(){
 	let toDos = [];
+	let id = 0;
 	const addToDoForm = document.getElementById('addToDoForm');
 	const newToDoText = document.getElementById('newToDoText');
 	const toDoList = document.getElementById('toDoList');
@@ -86,10 +87,13 @@ function onReady(){
 	function createNewToDo(){
 
 		if (!newToDoText.value) {return; }
-
+		for (var i = 0; i < toDos.length; i++){
+			id = toDos[i];
+		}
 		toDos.push({
 			title: newToDoText.value,
-			complete: false
+			complete: false,
+			id: id.value
 		});
 
 		newToDoText.value = '';
@@ -105,13 +109,21 @@ function onReady(){
 		toDos.forEach(function(toDo) {
 			const newLi = document.createElement('li');
 			const checkbox = document.createElement('input');
+			const deleteBtn = document.createElement('button')
+			deleteBtn.innerHTML = '<span>Delete</span>';
 			checkbox.type = "checkbox";
-		
+			
+
 			newLi.textContent = toDo.title;
 
 			toDoList.appendChild(newLi);
 			newLi.appendChild(checkbox);
+			newLi.appendChild(deleteBtn);
 
+			deleteBtn.addEventListener('click', function deleteToDo(id){
+
+				alert('works');
+			});
 		});
 	}
 
@@ -121,6 +133,9 @@ function onReady(){
 		newToDoText.value = '';
 	});
 
+
+
+
 	renderTheUI();
 }
 
@@ -129,6 +144,7 @@ function onReady(){
 window.onload = function() {
   onReady();
 }
+
 
 
 
