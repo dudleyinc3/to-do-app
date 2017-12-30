@@ -134,6 +134,10 @@ function onReady(){
 				//alert('works');
 				function deleteToDo(id){
 				toDo = toDos.filter(event => toDo.id !== id);
+
+				// Tried many combos, i.e. title.id, newLi.id, item, etc
+				// Losing the idea between itereation and filter
+				// I can get it to delete ALL todos?
 			}
 				
 				deleteToDo(toDo.id);
